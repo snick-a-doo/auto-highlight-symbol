@@ -958,7 +958,8 @@ You can do these operations at One Key!
   (when auto-highlight-symbol-mode
     (ahs-edit-post-command-hook-function)
     (save-match-data
-      (ahs-unhighlight)  ; unhighlight it once here so we can see the result immediately
+      (unless ahs-edit-mode-enable
+        (ahs-unhighlight))  ; unhighlight it once here so we can see the result immediately
       (ahs-stop-timer)
       (setq ahs-idle-timer
             (run-with-idle-timer
